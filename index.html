@@ -322,7 +322,11 @@
     window.addEventListener('resize', resize);
 
     const isMobile = window.innerWidth < 768;
-    const SHAPE_COUNT = isMobile ? 16 : 35;
+    // Determine grid from cell size so squares fill the full viewport
+    const BASE_CELL = isMobile ? 90 : 120;
+    const GRID_COLS = Math.floor(canvas.width / BASE_CELL);
+    const GRID_ROWS = Math.floor(canvas.height / BASE_CELL);
+    const SHAPE_COUNT = GRID_COLS * GRID_ROWS;
     const shapes = [];
 
     class Shape {
@@ -438,18 +442,19 @@
       shapes.push(new Shape());
     }
 
-    // Set ordered grid positions
-    const cols = Math.ceil(Math.sqrt(SHAPE_COUNT));
-    const rows = Math.ceil(SHAPE_COUNT / cols);
-    const cellW = canvas.width / (cols + 1);
-    const cellH = canvas.height / (rows + 1);
+    // Set ordered grid positions — fill entire viewport edge to edge
+    const cellSize = BASE_CELL;
+    const gridW = GRID_COLS * cellSize;
+    const gridH = GRID_ROWS * cellSize;
+    const offsetX = (canvas.width - gridW) / 2 + cellSize / 2;
+    const offsetY = (canvas.height - gridH) / 2 + cellSize / 2;
 
     shapes.forEach((shape, i) => {
-      const col = i % cols;
-      const row = Math.floor(i / cols);
+      const col = i % GRID_COLS;
+      const row = Math.floor(i / GRID_COLS);
       shape.setOrderTarget(
-        cellW * (col + 1),
-        cellH * (row + 1),
+        offsetX + col * cellSize,
+        offsetY + row * cellSize,
         0 // aligned rotation
       );
     });
