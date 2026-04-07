@@ -108,8 +108,8 @@
           <a href="#features" class="text-sm text-white/50 hover:text-white transition-colors hidden sm:block">Features</a>
           <a href="#how" class="text-sm text-white/50 hover:text-white transition-colors hidden sm:block">How it works</a>
           <a href="/privacy" class="text-sm text-white/50 hover:text-white transition-colors hidden sm:block">Privacy</a>
-          <a href="https://testflight.apple.com/join/PxM3pAXq" target="_blank" rel="noopener noreferrer" class="text-sm font-semibold bg-white text-black px-5 py-2 rounded-full hover:bg-white/90 transition-colors">
-            Join the beta
+          <a href="https://apps.apple.com/us/app/hush-quiet-your-phone/id6760844562" target="_blank" rel="noopener noreferrer" class="text-sm font-semibold bg-white text-black px-5 py-2 rounded-full hover:bg-white/90 transition-colors">
+            Download
           </a>
         </div>
       </div>
@@ -119,7 +119,7 @@
     <section class="min-h-screen flex items-center justify-center px-6 pt-20">
       <div class="max-w-5xl mx-auto flex flex-col lg:flex-row items-center gap-16 lg:gap-24">
         <div class="flex-1 text-center lg:text-left">
-          <p class="text-xs font-medium tracking-ultra uppercase text-white/30 mb-6 fade-up">The minimal app launcher <span class="ml-2 px-2 py-0.5 text-[10px] tracking-widest uppercase border border-white/20 rounded-full text-white/50">Beta</span></p>
+          <p class="text-xs font-medium tracking-ultra uppercase text-white/30 mb-6 fade-up">The minimal app launcher <span class="ml-2 px-2 py-0.5 text-[10px] tracking-widest uppercase border border-white/20 rounded-full text-white/50">Available now</span></p>
           <h1 class="text-5xl sm:text-6xl lg:text-7xl font-bold leading-[1.05] mb-6 fade-up">
             your phone,<br>but <span class="text-white/40">quieter</span>
           </h1>
@@ -127,8 +127,8 @@
             A minimal home screen that shows only the apps you choose. Nothing more.
           </p>
           <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start fade-up">
-            <a href="https://testflight.apple.com/join/PxM3pAXq" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center bg-white text-black font-semibold px-8 py-3.5 rounded-full hover:bg-white/90 transition-colors text-base">
-              Join the beta
+            <a href="https://apps.apple.com/us/app/hush-quiet-your-phone/id6760844562" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center bg-white text-black font-semibold px-8 py-3.5 rounded-full hover:bg-white/90 transition-colors text-base">
+              Download on the App Store
             </a>
             <a href="#how" class="inline-flex items-center justify-center border border-white/15 text-white/70 font-medium px-8 py-3.5 rounded-full hover:border-white/30 hover:text-white transition-colors text-base">
               See how it works
@@ -298,9 +298,9 @@
     <section id="download" class="py-32 px-6 border-t border-white/5">
       <div class="max-w-2xl mx-auto text-center">
         <h2 class="text-4xl sm:text-5xl font-bold mb-6 fade-up">Ready for quiet?</h2>
-        <p class="text-white/40 text-lg mb-10 fade-up">hush is currently in beta via TestFlight. Try it free and help shape what comes next.</p>
-        <a href="https://testflight.apple.com/join/PxM3pAXq" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center bg-white text-black font-semibold px-10 py-4 rounded-full hover:bg-white/90 transition-colors text-lg fade-up">
-          Join the beta
+        <p class="text-white/40 text-lg mb-10 fade-up">Download hush free on the App Store and take back your home screen.</p>
+        <a href="https://apps.apple.com/us/app/hush-quiet-your-phone/id6760844562" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center bg-white text-black font-semibold px-10 py-4 rounded-full hover:bg-white/90 transition-colors text-lg fade-up">
+          Download on the App Store
         </a>
       </div>
     </section>
@@ -310,7 +310,7 @@
       <div class="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-6">
         <div class="flex items-center gap-6">
           <span class="text-sm font-bold tracking-ultra">hush</span>
-          <span class="text-xs text-white/20">&copy; 2025 hush. All rights reserved.</span>
+          <span class="text-xs text-white/20">&copy; 2025–2026 hush. All rights reserved.</span>
         </div>
         <div class="flex items-center gap-6">
           <a href="/privacy" class="text-xs text-white/30 hover:text-white/60 transition-colors">Privacy Policy</a>
@@ -477,13 +477,13 @@
     const startTime = Date.now();
 
     function getProgress() {
-      // Chaos for 1s, then ease into grid over 4s
+      // Chaos for 0.7s, then ease into grid over 2.8s
       const timePassed = (Date.now() - startTime) / 1000;
 
-      if (timePassed < 1) {
+      if (timePassed < 0.7) {
         return 0; // pure chaos
-      } else if (timePassed < 5) {
-        const t = (timePassed - 1) / 4;
+      } else if (timePassed < 3.5) {
+        const t = (timePassed - 0.7) / 2.8;
         return t * t * (3 - 2 * t); // smoothstep 0→1
       }
       return 1; // fully ordered
